@@ -1,0 +1,107 @@
+함수
+	def 이름 :
+		실행문
+왼쪽으로 회전
+	turn_left()
+반복
+	repeat(a,b)
+	for 변수 in range():
+종료
+	turn_off()
+print front_is_clear()
+	로봇이 바라보는 방향에 벽이 없을때 ture
+print right_is_clear()
+	로봇의 오른쪽에 벽이 없을때 ture
+print left_is_clear()
+	로봇의 왼쪽에 벽이 없을때 ture
+print on_beeper()
+	로봇이 위치한 자리에 비퍼가있을때ture
+prit carries_beepers()
+	로봇이 비퍼를 가진 비퍼가 있다면 ture
+print facing_north()
+	로봇이 북쪽을 바라볼때 ture
+turn_off()
+
+if 조건 :
+	조건이 참일때 실행할 문장
+elif 조건2 :
+	조건2가 참일 때 실행문장
+else:
+	조건이 거짓일때 실행문장
+while not 조건:
+	조건이 참일때 실행문장
+whie 조건:
+	조건이 거짓일때 실행문장
+
+#동위대 길오르기
+
+def turn_right():
+    repeat(turn_left,3)
+if front_is_clear():
+    move()
+turn_left()
+move()
+turn_right()
+if front_is_clear():
+    move()
+while left_is_clear():
+    turn_left()
+    move()
+    if front_is_clear():
+        move()
+    turn_right()
+    move()
+move()
+while left_is_clear():
+    turn_left()
+    move()
+    if front_is_clear():
+        move()
+    turn_right()
+    move()
+if right_is_clear():
+    turn_right()
+    move()
+while carries_beepers():
+    put_beeper()
+repeat(turn_left,2)
+move()
+
+R1=UsedRobot(2)	#2열에 로봇이 생성
+R2=UsedRobot(2,3)	#3행 2열에 로봇 생성
+R3=UsedRobot(3,1,'S',colour='green')	#남쪽을 바라보고 초록 로봇 생성
+R4=UsedRobot(5,colour='yellow')	#노랑
+R5=UsedRobot(avennues=1,streets=2,or ient_key='E',beepers=10,colour='blue')
+#1행 2열 에 동쪽을 바라보고 beeper를 10개 주어 파란색으로 출력
+#yellow/blue/green/light blue/purple 출력가능
+
+n=0
+while R5.carries_beepers():
+	R5.put_beeper()
+	n=n+1
+R5.move()
+print n
+turn_off()
+
+#4개의 로봇들이 0부터9까지 의 정수를 랜덤으로 값을 받아 그 값만큼 이동
+import random
+RB=UsedRobot(1,2,colour='blue')
+RG=UsedRobot(1,3,colour='green')
+RY=UsedRobot(1,4,colour='yellow')
+RP=UsedRobot(1,5,colour='purple')
+a=random.randrange(10)
+b=random.randrange(10)
+g=random.randrange(10)
+y=random.randrange(10)
+p=random.randrange(10)
+for i in range(a):
+    move()
+for i in range(b):
+	RB.move()
+for i in range(g):
+	RG.move()
+for i in range(y):
+	RY.move()
+for i in range(p):
+	RP.move()
+turn_off()
