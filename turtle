@@ -1,0 +1,13 @@
+import turtle as t
+#삼각형
+t.shape("classic")  #모양
+t.pencolor("red")   #색깔
+t.speed(0)          # 그리는 속도
+for i in range(0,3):
+    t.forward(100)  #직선
+    t.left(120)     #각도
+
+t.color("blue")
+t.speed(1)  
+t.pensize(8)        #선의 굵기
+t.circle(50)        #원
