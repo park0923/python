@@ -1,0 +1,70 @@
+from roboid import *
+import random   #랜덤함수
+ha=Hamster()
+#ha.wheels(100,-100) #바퀴이동 (왼,오)
+#wait(5000)
+
+#ha.wheels(0,-100)
+#wait(5000)
+
+#ha.board_forward() #앞으로
+#ha.board_left()    #왼쪽으로 회전
+#ha.board_forward() 
+#ha.board_right()   #오른쪽으로 회전
+
+#ha.left_wheel(100) #왼쪽으로 방향 전환
+#wait(1000)         
+#ha.left_wheel(0)
+#ha.right_wheel(50) #오른쪽으로 방향 전환
+#wait(1000)
+
+#ha.leds(Hamster.LED_BLUE,Hamster.LED_GREEN) #빛 (왼,오)
+#wait(2000)
+
+#ha.leds(Hamster.LED_OFF) # 빛끔
+#wait(1000)
+
+#ha.buzzer(19000) # 소리
+#wait(1000)
+#ha.buzzer(0) # 소리 끔
+
+#for i in range(40,50): #음정
+#    ha.note(i)
+#    wait(1000)
+    
+#ha.note(0)
+
+#for i in range(1,5):    #랜덤함수를 이용하여 랜덤으로 이동
+#    a=random.randint(1,100) #랜덤의 범위
+#    b=random.randint(1,100) 
+#    print(a,b)          #크기 추력
+#    ha.wheels(a,b)
+#    wait(1000)
+#    ha.wheels(-1*a,-1*b)
+#    wait(1000)
+
+#while True:     #근접센서의 값을 이용한 이동
+#    if ha.left_proximity() < 45 and ha.right_proximity() < 45: 
+#        ha.wheels(30)
+#    else:
+#        ha.wheels(-30)
+#    wait(50)
+
+#while True:     # 미로 탈출
+#    if ha.left_proximity() > 15:
+#        ha.wheels(30,0)
+#    else :
+#        ha.wheels(0,30)
+#    wait(10)
+
+while True:     #로봇 청소기 예제
+    if ha.left_proximity() > 50 :
+        ha.wheels(30,-30)
+        wait(random.randint(0,1000))
+    elif ha.right_proximity() > 50 :
+        ha.wheels(-30,30)
+        wait(random.randint(0,1000))
+    else:
+        ha.wheels(30)
+    wait(20)
+ha.stop()
